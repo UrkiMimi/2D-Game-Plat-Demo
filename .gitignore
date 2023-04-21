@@ -1,0 +1,5 @@
+*.meta
+/Assets/AmplifyShaderEditor/*
+.DS_Store
+/Library
+/Logs
