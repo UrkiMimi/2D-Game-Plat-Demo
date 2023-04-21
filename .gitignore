@@ -1,5 +1,12 @@
-*.meta
+/Build/*
 /Assets/AmplifyShaderEditor/*
 .DS_Store
 /Library
 /Logs
+
+\Build\*
+\Assets\AmplifyShaderEditor\*
+.DS_Store
+\Library
+\Temp
+\Logs

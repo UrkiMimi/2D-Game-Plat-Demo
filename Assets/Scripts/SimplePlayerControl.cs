@@ -6,7 +6,11 @@ public class SimplePlayerControl : MonoBehaviour
 {
     // Start of defining variables
     private float x;
+
     private float y;
+
+    private BoxCollider2D coll2D;
+
     public Rigidbody2D rb2D;
 
     [SerializeField]
@@ -21,7 +25,9 @@ public class SimplePlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Initialize Collider
+        coll2D = GetComponent<BoxCollider2D>();
+
         // If the user of this sets the SmoothStopParam float to a value higher than 1
         if (SmoothStopParam >= 1)
             SmoothStopParam = 1.0f;
@@ -40,7 +46,7 @@ public class SimplePlayerControl : MonoBehaviour
             x = Speed * -1.0f;
         else if (Input.GetButton("Right"))
             x = Speed;
-        if (Input.GetButtonDown("Up")) // I'm too lazy to make it so this gets disabled if you are airborne
+        if (Input.GetButtonDown("Up") && coll2D.IsTouchingLayers())
             rb2D.AddForce(transform.up * JumpHeight, ForceMode2D.Impulse);
 
         // Control Position of gameObject
